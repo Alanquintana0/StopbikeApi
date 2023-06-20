@@ -1,0 +1,30 @@
+###
+POST http://localhost:3000/api/clients HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Karelly",
+    "lastName": "Quintana",
+    "phoneNumber": "6561003244",
+    "address": "Rancho la joya"
+}
+
+###
+GET http://localhost:3000/api/clients HTTP/1.1
+
+###
+GET http://localhost:3000/api/clients/6490d083916481384dbc6ca0 HTTP/1.1
+
+###
+PUT http://localhost:3000/api/clients/6490d083916481384dbc6ca0 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Laura Karelly",
+    "lastName": "Quintana Montano",
+    "phoneNumber": "6561003244",
+    "address": "Uunto a costco"
+}
+
+###
+DELETE http://localhost:3000/api/clients/6490d083916481384dbc6ca0 HTTP/1.1
