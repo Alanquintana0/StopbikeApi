@@ -25,9 +25,7 @@ router.post('/users', async (req, res) => {
     };
 
     const newUser = userSchema(User);
-
-    console.log(newUser);
-
+    
     newUser.save()
     .then((data) => {
         res.json(data);
