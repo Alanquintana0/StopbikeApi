@@ -1,4 +1,4 @@
-const express = require("express");
+const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
     userName: {
@@ -19,6 +19,10 @@ const userSchema = mongoose.Schema({
         required: true
     },
     address: {
+        type: String,
+        required: true
+    },
+    salt: {
         type: String,
         required: true
     }

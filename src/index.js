@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const clientRoutes = require('./routes/clients');
 const serviceRoutes = require('./routes/services');
+const userRoutes = require('./routes/users');
 
 //Se usa una variable app para manejar los metodos de express, y se define el puerto con una variable de entorno o el puerto 3000
 const app = express();
@@ -13,6 +14,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use('/api', clientRoutes);
 app.use('/api', serviceRoutes);
+app.use('/api', userRoutes);
 
 
 //el get a localhost sin una ruta especificada nos arrojara este mensaje predeterminado
