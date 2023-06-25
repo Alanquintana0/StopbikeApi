@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const userSchema = require("../models/user");
 
 const router = express.Router();
-
+//Post to users and validation of no repeated username
 router.post("/users", async (req, res) => {
   var newUserName = req.body.userName;
   var password = req.body.password;
