@@ -48,9 +48,26 @@ router.post("/users", async (req, res) => {
     });
 });
 
-/*
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
+  const userName = req.body.userName;
+  const password = req.body.password;
 
-})
-*/
+  const user = await userSchema.findOne({ userName: userName });
+  if (!user) {
+    return res.status(401).json({
+      message: 'Authentication failed'
+    });
+  }
+
+  const passwordMatch = await bcrypt.compare(password, user.password);
+  if (!passwordMatch) {
+    return res.status(401).json({
+      message: 'Authentication failed'
+    });
+  }
+
+  res.status(200).json({
+    message: 'Authentication successful'
+  });
+});
 module.exports = router;
