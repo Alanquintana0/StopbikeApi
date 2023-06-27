@@ -1,11 +1,16 @@
+//Importamos las librerias necesarias y el schema de clientes
 const express = require("express");
 const clientSchema = require('../models/client');
 
+//Importamos la funcion router de express para manejar las rutas y peticiones
 const router = express.Router();
 
-//Create client
+//Creamos un metodo post para almacenar clients en nuestra base de datos
 router.post('/clients', (req, res) => {
+    //Almacenamos el objeto recibido en una constante del tipo clientSchema
     const user = clientSchema(req.body);
+
+    //Los datos almacenados los mandamos a nuestra base de datos a traves de nuestro metodo .save, si funciona nos devuelve un 200, si no un error
     user.save().then((data) => {
         res.json(data)
     }).catch((err) => {
@@ -15,7 +20,7 @@ router.post('/clients', (req, res) => {
     });
 });
 
-//Get all clients
+//
 router.get('/clients', (req, res) => {
     clientSchema
     .find()
